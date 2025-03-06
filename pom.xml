@@ -9,10 +9,10 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>gateway</artifactId>
+	<artifactId>online-school-gateway-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gateway</name>
-	<description>gateway</description>
+	<name>online-school-gateway-api</name>
+	<description>online-school-gateway-api</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
