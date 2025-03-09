@@ -4,43 +4,36 @@ spring:
       enabled: false
     gateway:
       routes:
-        - id: authservice
-          uri: http://courses-auth-service:8083
+        - id: online-school-auth-api
+          uri: http://online-school-auth-api:8083
           predicates:
             - Path=/server/**
           filters:
             - RewritePath=/server/(?<segment>.*), /server/api/v1/${segment}
 
-        - id: courseservice
-          uri: http://courses-microservice:8082
+        - id: online-school-course-api
+          uri: http://online-school-course-api:8082
           predicates:
             - Path=/courses/**
           filters:
             - RewritePath=/courses/(?<segment>.*), /courses/api/v1/${segment}
 
-        - id: paymentservice
-          uri: http://courses-payment-service:8084
-          predicates:
-                - Path=/payment/**
-          filters:
-                - RewritePath=/payment/(?<segment>.*), /payment/api/v1/${segment}
-
         - id: ui
-          uri: http://client:3000
+          uri: http://online-school-client:3000
           predicates:
             - Path=/ui/**
           filters:
             - RewritePath=/ui/(?<segment>.*), /${segment}
 
         - id: next-assets
-          uri: http://client:3000
+          uri: http://online-school-client:3000
           predicates:
             - Path=/_next/static/**
           filters:
             - RewritePath=/_next/static/(?<filename>.*), /_next/static/${filename}
 
         - id: media-files-ui
-          uri: http://client:3000
+          uri: http://online-school-client:3000
           predicates:
               - Path=/assets/**, /images/**, /public/**
 
