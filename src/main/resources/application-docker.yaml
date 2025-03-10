@@ -21,9 +21,8 @@ spring:
         - id: ui
           uri: http://online-school-client:3000
           predicates:
-            - Path=/ui/**
-          filters:
-            - RewritePath=/ui/(?<segment>.*), /${segment}
+            - Path=/**
+          filters: []
 
         - id: next-assets
           uri: http://online-school-client:3000
