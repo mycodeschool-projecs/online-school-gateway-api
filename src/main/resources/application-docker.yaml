@@ -18,11 +18,7 @@ spring:
           filters:
             - RewritePath=/courses/(?<segment>.*), /courses/api/v1/${segment}
 
-        - id: ui
-          uri: http://online-school-client:3000
-          predicates:
-            - Path=/**
-          filters: []
+
 
         - id: next-assets
           uri: http://online-school-client:3000
@@ -34,8 +30,13 @@ spring:
         - id: media-files-ui
           uri: http://online-school-client:3000
           predicates:
-              - Path=/assets/**, /images/**, /public/**
+            - Path=/assets/**, /images/**, /public/**
 
+        - id: ui
+          uri: http://online-school-client:3000
+          predicates:
+            - Path=/**
+          filters: [ ]
       globalcors:
         corsConfigurations:
           '[/**]':
